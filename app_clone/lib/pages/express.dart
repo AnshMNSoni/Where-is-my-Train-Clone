@@ -29,13 +29,15 @@ class _ExpressPageState extends State<ExpressPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.notificationColor,
-                    borderRadius: BorderRadius.circular(40),
+                Flexible(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: AppColors.notificationColor,
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Icon(Icons.notifications, size: 32),
                   ),
-                  child: Icon(Icons.notifications, size: 32),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.height * 0.025),
                 SizedBox(

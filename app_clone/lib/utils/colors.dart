@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color buttonColor = Color(0xFF1a863a);
-  static Color tagColor = Color(0xFFa3c8fd);
+  static Color tagColor = Color(0xFFadcefb);
   static Color iconColor = Color(0xFFffffff);
   static Color tabBarHoverColor = Color(0xFF323e4c);
 
@@ -18,4 +18,7 @@ class AppColors {
   // ExpressPage Colors
   static Color expressSectionFontColor = Colors.white;
   static Color notificationColor = Color(0xFFb6130e);
+
+  // PNR Section
+  static Color containerColor = Color(0xFF1e1f21);
 }

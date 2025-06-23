@@ -1,5 +1,6 @@
 import 'package:app_clone/pages/express.dart';
 import 'package:app_clone/pages/pnr.dart';
+import 'package:app_clone/pages/tickets.dart';
 import 'package:flutter/material.dart';
 import 'package:app_clone/utils/colors.dart';
 
@@ -208,14 +209,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ],
             ),
           ),
-          PageView(
-            controller: bottomNavPageController,
-            children: [Text("Done")],
-          ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        padding: EdgeInsets.zero,
         color: AppColors.appbarColor,
+        height: MediaQuery.of(context).size.width * 0.145,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -228,19 +227,42 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               },
               child: Row(
                 children: [
-                  Icon(Icons.receipt_long, color: Colors.white, size: 24),
+                  Icon(Icons.search, color: Colors.white, size: 24),
                   SizedBox(width: 6),
-                  Text("PNR", style: TextStyle(color: Colors.white)),
+                  Text(
+                    "PNR",
+                    style: TextStyle(color: Colors.white, fontSize: 19),
+                  ),
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.only(
+                left: MediaQuery.of(context).size.height * 0.03,
+              ),
+              color: Colors.grey.shade500,
+              width: 1,
+              height: MediaQuery.of(context).size.width,
+            ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TicketsPage()),
+                );
+              },
               child: Row(
                 children: [
-                  Icon(Icons.train_outlined, color: Colors.white, size: 24),
+                  Icon(
+                    Icons.confirmation_num_outlined,
+                    color: Colors.white,
+                    size: 24,
+                  ),
                   SizedBox(width: 6),
-                  Text("Tickets", style: TextStyle(color: Colors.white)),
+                  Text(
+                    "Tickets",
+                    style: TextStyle(color: Colors.white, fontSize: 19),
+                  ),
                 ],
               ),
             ),

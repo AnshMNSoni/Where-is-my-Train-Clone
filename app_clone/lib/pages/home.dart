@@ -1,5 +1,6 @@
 import 'package:app_clone/pages/appdrawer.dart';
 import 'package:app_clone/pages/express.dart';
+import 'package:app_clone/pages/metro.dart';
 import 'package:app_clone/pages/pnr.dart';
 import 'package:app_clone/pages/tickets.dart';
 import 'package:flutter/material.dart';
@@ -97,12 +98,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               controller: _tabController,
               children: [
                 Center(child: ExpressPage()),
-                Center(
-                  child: Text(
-                    "Metro Page",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+                Center(child: MetroPage()),
               ],
             ),
           ),

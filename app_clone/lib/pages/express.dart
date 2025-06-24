@@ -30,6 +30,14 @@ class _ExpressPageState extends State<ExpressPage> {
           "Station departure board",
     };
 
+    Map<dynamic, dynamic> _searchList = {
+      "20960": ["Valsad InterCity SuperFast", "GNC - NVS"],
+      "20959": ["Vadnagar InterCity SuperFast", "NVS - GNC"],
+      "12930": ["Valsad InterCity SuperFast", "BRC - NVS"],
+      "19011": ["Dahod InterCity Express", "NVS - BRC"],
+      "12929": ["Vadodara InterCity SuperFast", "BL - BRC"],
+    };
+
     return Center(
       child: ListView(
         padding: EdgeInsets.only(
@@ -102,58 +110,150 @@ class _ExpressPageState extends State<ExpressPage> {
             ),
           ),
 
-          for (int items = 0; items < 2; items++)
-            Container(
-              margin: EdgeInsets.only(top: w * 0.05),
-              padding: EdgeInsets.only(
-                left: w * 0.02,
-                right: w * 0.02,
-                top: w * 0.015,
-                bottom: w * 0.015,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.grey.shade700),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _trainNameList.keys.elementAt(items),
-
-                  Container(
-                    width: w * 0.64,
-                    child: Text(
-                      _trainNameList.values.elementAt(items),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18,
+          Column(
+            children: List.generate(_trainNameList.length, (index) {
+              return Container(
+                margin: EdgeInsets.only(top: w * 0.05),
+                padding: EdgeInsets.symmetric(
+                  horizontal: w * 0.02,
+                  vertical: w * 0.015,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.grey.shade700),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _trainNameList.keys.elementAt(index),
+                    SizedBox(
+                      width: w * 0.64,
+                      child: Text(
+                        _trainNameList.values.elementAt(index),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: w * 0.045,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                       ),
                     ),
-                  ),
 
-                  // Search Button
-                  Container(
-                    width: w * 0.11,
-                    child: TextButton(
-                      style: ButtonStyle(
-                        padding: WidgetStateProperty.all(EdgeInsets.zero),
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                    // Search Button
+                    SizedBox(
+                      width: w * 0.11,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          padding: WidgetStateProperty.all(EdgeInsets.zero),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                          backgroundColor: WidgetStateProperty.all(
+                            AppColors.buttonColor,
                           ),
                         ),
-                        backgroundColor: WidgetStateProperty.all(
-                          AppColors.buttonColor,
+                        onPressed: () {},
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                          size: w * 0.06,
                         ),
                       ),
-                      onPressed: () {},
-                      child: Icon(Icons.search, color: Colors.white, size: 24),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+              );
+            }),
+          ),
+
+          Container(
+            padding: EdgeInsets.only(
+              left: w * 0.02,
+              right: w * 0.02,
+              top: w * 0.02,
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                left: BorderSide(color: Colors.grey.shade700),
+                right: BorderSide(color: Colors.grey.shade700),
+                top: BorderSide(color: Colors.grey.shade700),
               ),
             ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("SEARCH HISTORY", style: TextStyle(fontSize: 16)),
+
+                SizedBox(height: w * 0.05),
+
+                for (int item = 0; item < 5; item++)
+                  Container(
+                    padding: EdgeInsets.only(bottom: w * 0.02, top: w * 0.02),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: Colors.grey.shade700),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                          padding: EdgeInsets.only(
+                            left: w * 0.009,
+                            right: w * 0.009,
+                          ),
+                          child: Text(
+                            _searchList.keys.elementAt(item),
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(
+                          width: w * 0.4,
+                          child: Text(
+                            _searchList.values.elementAt(item)[0],
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.grey.shade300,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: w * 0.033),
+
+                        Text(
+                          _searchList.values.elementAt(item)[1],
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey.shade300,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+
+                        Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 18,
+                          color: Colors.greenAccent,
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ],
       ),
     );

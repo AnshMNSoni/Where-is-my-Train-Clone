@@ -1,5 +1,6 @@
 import 'package:app_clone/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:app_clone/pages/traveljourney.dart';
 
 class ExpressPage extends StatefulWidget {
   const ExpressPage({super.key});
@@ -11,6 +12,8 @@ class ExpressPage extends StatefulWidget {
 class _ExpressPageState extends State<ExpressPage> {
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+
     return Center(
       child: ListView(
         padding: EdgeInsets.only(
@@ -55,6 +58,31 @@ class _ExpressPageState extends State<ExpressPage> {
                 ),
                 Icon(Icons.arrow_right, size: 38),
               ],
+            ),
+          ),
+
+          TravelJourney(),
+
+          Center(
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.buttonColor,
+                padding: EdgeInsets.only(
+                  left: w * 0.1,
+                  right: w * 0.1,
+                  top: w * 0.025,
+                  bottom: w * 0.025,
+                ),
+              ),
+              child: Text(
+                "Book tickets on Confirmtkt",
+                style: TextStyle(
+                  fontSize: w * 0.053,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
           ),
         ],

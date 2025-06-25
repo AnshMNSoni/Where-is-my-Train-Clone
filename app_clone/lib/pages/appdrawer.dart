@@ -22,9 +22,11 @@ class _AppDrawerState extends State<AppDrawer> {
     Icon(Icons.settings_suggest_outlined): "Suggest a feature",
     Icon(Icons.notifications): "View all Alerts",
   };
-  
+
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+
     return Drawer(
       elevation: 0,
       shadowColor: Colors.black,
@@ -62,7 +64,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               "Where is my Train",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 22,
+                                fontSize: w * 0.055,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

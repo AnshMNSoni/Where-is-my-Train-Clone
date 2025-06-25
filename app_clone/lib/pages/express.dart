@@ -1,3 +1,4 @@
+import 'package:app_clone/pages/trainroutes.dart';
 import 'package:app_clone/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:app_clone/pages/traveljourney.dart';
@@ -93,7 +94,12 @@ class _ExpressPageState extends State<ExpressPage> {
               width: w,
               padding: EdgeInsets.only(left: 5, right: 5, bottom: 10),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TrainRoutePage())
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.buttonColor,
                   padding: EdgeInsets.only(top: w * 0.025, bottom: w * 0.025),

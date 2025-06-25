@@ -12,7 +12,20 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
   String selectedDate = 'All Dates';
   String selectedRoute = 'GNC - Gandhinagar Capital → NVS - Navsari';
 
-  List<String> radioTilesList = ['All Dates', 'Today', 'Tomorrow', 'Yesterday'];
+  List<String> dateTilesList = ['All Dates', 'Today', 'Tomorrow', 'Yesterday'];
+
+  List<String> fareTilesList = [
+    'GN - Unreserved',
+    'SL - Sleeper',
+    'CC - AC Chair Car',
+    'EC - Executive Class',
+    'FC - First Class',
+    '2S - Second Sitting',
+    '3S - Third Sitting',
+    'Hide fares',
+  ];
+
+  List<String> sortByTilesList = ['Departure Time', 'Duration', 'Arrival Time'];
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +124,7 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
                       );
                     }).toList(),
                     onChanged: (_) {
-                      _showDatePickerDialog(context);
+                      _showFarePickerDialog(context);
                     },
                   ),
                 ),
@@ -143,21 +156,42 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
                       );
                     }).toList(),
                     onChanged: (_) {
-                      _showDatePickerDialog(context);
+                      _showSortByPickerDialog(context);
                     },
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 20),
-          Text(selectedRoute),
-          SizedBox(height: 10),
-          Text('20960  6:25 PM - 5h15m - 11:40 PM'),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Check seat availability'),
+
+          Container(
+            padding: EdgeInsets.only(top: h * 0.025, bottom: h * 0.025),
+            width: w,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: w * 0.02,
+                  spreadRadius: w * 0.005,
+                ),
+              ],
+              color: Color(0xFF242d3c),
+            ),
+            child: Center(
+              child: Text(
+                selectedRoute,
+                style: TextStyle(
+                  fontSize: w * 0.045,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.expressSectionFontColor,
+                ),
+              ),
+            ),
           ),
+
+          SizedBox(height: 10),
+
+          Text('20960  6:25 PM - 5h15m - 11:40 PM'),
         ],
       ),
     );
@@ -189,24 +223,178 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
                 topRight: Radius.circular(w * 0.05),
               ),
             ),
-            child: Text(
-              'Choose the date when the train starts from Gandhinagar Capital',
-              style: TextStyle(
-                fontSize: w * 0.045,
-                fontWeight: FontWeight.w500,
+            child: Center(
+              child: Text(
+                'Choose the date when the train starts from Gandhinagar Capital',
+                style: TextStyle(
+                  fontSize: w * 0.045,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              for (int tile = 0; tile < 4; tile++)
+              for (int tile = 0; tile < dateTilesList.length; tile++)
                 RadioListTile<String>(
                   tileColor: Color(0xFF1e1f21),
                   selectedTileColor: Colors.black,
                   activeColor: Colors.blue,
-                  title: Text(radioTilesList[tile]),
-                  value: radioTilesList[tile],
+                  title: Text(dateTilesList[tile]),
+                  value: dateTilesList[tile],
+                  groupValue: selectedDate,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedDate = value!;
+                    });
+                    Navigator.pop(context);
+                  },
+                ),
+            ],
+          ),
+          actions: [
+            Divider(color: Colors.grey.shade700, height: w * 0.02),
+
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(color: Colors.white, fontSize: w * 0.04),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showFarePickerDialog(BuildContext context) {
+    final double w = MediaQuery.of(context).size.width;
+    final double h = MediaQuery.of(context).size.height;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          alignment: Alignment.center,
+          titlePadding: EdgeInsetsGeometry.all(0),
+          contentPadding: EdgeInsetsGeometry.all(0),
+          backgroundColor: Color(0xFF1e1f21),
+          title: Container(
+            padding: EdgeInsets.only(
+              left: w * 0.05,
+              right: w * 0.05,
+              top: h * 0.025,
+              bottom: h * 0.025,
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFF222e3d),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(w * 0.05),
+                topRight: Radius.circular(w * 0.05),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                'Choose Fare Class',
+                style: TextStyle(
+                  fontSize: w * 0.045,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (int tile = 0; tile < fareTilesList.length; tile++)
+                RadioListTile<String>(
+                  tileColor: Color(0xFF1e1f21),
+                  selectedTileColor: Colors.black,
+                  activeColor: Colors.blue,
+                  title: Text(fareTilesList[tile]),
+                  value: fareTilesList[tile],
+                  groupValue: selectedDate,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedDate = value!;
+                    });
+                    Navigator.pop(context);
+                  },
+                ),
+            ],
+          ),
+          actions: [
+            Divider(color: Colors.grey.shade700, height: w * 0.02),
+
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(color: Colors.white, fontSize: w * 0.04),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showSortByPickerDialog(BuildContext context) {
+    final double w = MediaQuery.of(context).size.width;
+    final double h = MediaQuery.of(context).size.height;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          alignment: Alignment.center,
+          titlePadding: EdgeInsetsGeometry.all(0),
+          contentPadding: EdgeInsetsGeometry.all(0),
+          backgroundColor: Color(0xFF1e1f21),
+          title: Container(
+            padding: EdgeInsets.only(
+              left: w * 0.05,
+              right: w * 0.05,
+              top: h * 0.025,
+              bottom: h * 0.025,
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFF222e3d),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(w * 0.05),
+                topRight: Radius.circular(w * 0.05),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                'Sort by',
+                style: TextStyle(
+                  fontSize: w * 0.045,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (int tile = 0; tile < sortByTilesList.length; tile++)
+                RadioListTile<String>(
+                  tileColor: Color(0xFF1e1f21),
+                  selectedTileColor: Colors.black,
+                  activeColor: Colors.blue,
+                  title: Text(sortByTilesList[tile]),
+                  value: sortByTilesList[tile],
                   groupValue: selectedDate,
                   onChanged: (value) {
                     setState(() {

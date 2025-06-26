@@ -80,7 +80,7 @@ class TravelJourneyState extends State<TravelJourney> {
                                 _cityList.keys.elementAt(item),
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 15,
+                                  fontSize: w * 0.04,
                                 ),
                               ),
                             ),
@@ -93,7 +93,7 @@ class TravelJourneyState extends State<TravelJourney> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 18,
+                                  fontSize: w * 0.045,
                                 ),
                               ),
                             ),

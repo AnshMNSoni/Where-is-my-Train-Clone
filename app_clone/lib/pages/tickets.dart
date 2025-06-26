@@ -156,12 +156,12 @@ class _TicketsPageState extends State<TicketsPage> {
                           ),
                         ),
                       ),
-                      width: w * 0.64,
+                      width: w * 0.62,
                       child: Text(
                         "General",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: w * 0.048,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

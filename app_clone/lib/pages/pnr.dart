@@ -13,12 +13,12 @@ class _PNRPageState extends State<PNRPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_left, size: screenWidth * 0.08),
+        leading: Icon(Icons.arrow_left, size: w * 0.08),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -26,23 +26,19 @@ class _PNRPageState extends State<PNRPage> {
               "PNR",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: screenWidth * 0.05,
+                fontSize: w * 0.05,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Icon(
-              Icons.more_vert,
-              size: screenWidth * 0.07,
-              color: Colors.white,
-            ),
+            Icon(Icons.more_vert, size: w * 0.07, color: Colors.white),
           ],
         ),
         backgroundColor: AppColors.appbarColor,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.02,
-          vertical: screenHeight * 0.018,
+          horizontal: w * 0.02,
+          vertical: h * 0.018,
         ),
         child: Column(
           children: [
@@ -50,8 +46,8 @@ class _PNRPageState extends State<PNRPage> {
               color: AppColors.containerColor,
               height: MediaQuery.of(context).size.height * 0.2,
               padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.025,
-                vertical: screenHeight * 0.01,
+                horizontal: w * 0.025,
+                vertical: h * 0.01,
               ),
               child: Column(
                 children: [
@@ -63,20 +59,20 @@ class _PNRPageState extends State<PNRPage> {
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: 'Enter Your PNR No',
-                            labelStyle: TextStyle(fontSize: screenWidth * 0.05),
+                            labelStyle: TextStyle(fontSize: w * 0.05),
                             border: UnderlineInputBorder(),
                             suffixIcon: Icon(
                               Icons.cancel_outlined,
-                              size: screenWidth * 0.06,
+                              size: w * 0.06,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: screenWidth * 0.03),
-                      Icon(Icons.mic, size: screenWidth * 0.08),
+                      SizedBox(width: w * 0.03),
+                      Icon(Icons.mic, size: w * 0.08),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.015),
+                  SizedBox(height: h * 0.015),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -85,14 +81,12 @@ class _PNRPageState extends State<PNRPage> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.buttonColor,
-                        padding: EdgeInsets.symmetric(
-                          vertical: screenHeight * 0.02,
-                        ),
+                        padding: EdgeInsets.symmetric(vertical: h * 0.02),
                       ),
                       child: Text(
                         "Find PNR Status",
                         style: TextStyle(
-                          fontSize: screenWidth * 0.045,
+                          fontSize: w * 0.045,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -107,8 +101,8 @@ class _PNRPageState extends State<PNRPage> {
               color: AppColors.containerColor,
               height: MediaQuery.of(context).size.height * 0.07,
               padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.025,
-                vertical: screenHeight * 0.01,
+                horizontal: w * 0.025,
+                vertical: h * 0.01,
               ),
               child: Row(
                 children: [
@@ -126,7 +120,7 @@ class _PNRPageState extends State<PNRPage> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.tagColor,
-                          fontSize: 19,
+                          fontSize: w * 0.046,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

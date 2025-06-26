@@ -59,24 +59,23 @@ class _ExpressPageState extends State<ExpressPage> {
               children: [
                 Flexible(
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(w * 0.02),
                     decoration: BoxDecoration(
                       color: AppColors.notificationColor,
-                      borderRadius: BorderRadius.circular(40),
+                      borderRadius: BorderRadius.circular(w * 0.08),
                     ),
-                    child: Icon(Icons.notifications, size: 32),
+                    child: Icon(Icons.notifications, size: w * 0.08),
                   ),
                 ),
-                SizedBox(width: MediaQuery.of(context).size.height * 0.025),
                 SizedBox(
-                  width: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.height * 0.25,
                   child: Text(
                     "Tatkal Ticket Booking To Require Adhar Card Authentication",
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: TextStyle(
                       color: AppColors.expressSectionFontColor,
-                      fontSize: 18,
+                      fontSize: w * 0.045,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -97,7 +96,7 @@ class _ExpressPageState extends State<ExpressPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TrainRoutePage())
+                    MaterialPageRoute(builder: (context) => TrainRoutePage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

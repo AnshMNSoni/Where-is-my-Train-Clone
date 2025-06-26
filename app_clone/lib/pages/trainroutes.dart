@@ -57,141 +57,272 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
         ),
         backgroundColor: Color(0xFF1b1b1b),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(color: Color(0xFF232d3c)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // All Dates DropDown
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF323e4c),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  margin: EdgeInsets.only(top: h * 0.015, bottom: h * 0.015),
-                  padding: EdgeInsets.only(left: w * 0.05, right: w * 0.04),
-                  child: DropdownButton<String>(
-                    underline: SizedBox.shrink(),
-                    dropdownColor: Color(0xFF1c1c1c),
-                    iconEnabledColor: Colors.white,
-                    iconDisabledColor: Colors.grey.shade600,
-                    value: 'All Date',
-                    items: <String>['All Date'].map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: w * 0.042,
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (_) {
-                      _showDatePickerDialog(context);
-                    },
-                  ),
-                ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(color: Color(0xFF232d3c)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    // All Dates DropDown
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF323e4c),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      margin: EdgeInsets.only(
+                        top: h * 0.015,
+                        bottom: h * 0.015,
+                      ),
+                      padding: EdgeInsets.only(left: w * 0.05, right: w * 0.04),
+                      child: DropdownButton<String>(
+                        underline: SizedBox.shrink(),
+                        dropdownColor: Color(0xFF1c1c1c),
+                        iconEnabledColor: Colors.white,
+                        iconDisabledColor: Colors.grey.shade600,
+                        value: 'All Date',
+                        items: <String>['All Date'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w * 0.042,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {
+                          _showDatePickerDialog(context);
+                        },
+                      ),
+                    ),
 
-                // Show Fares DropDown
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF323e4c),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  margin: EdgeInsets.only(top: h * 0.015, bottom: h * 0.015),
-                  padding: EdgeInsets.only(left: w * 0.05, right: w * 0.03),
-                  child: DropdownButton<String>(
-                    underline: SizedBox.shrink(),
-                    dropdownColor: Color(0xFF1c1c1c),
-                    iconEnabledColor: Colors.white,
-                    iconDisabledColor: Colors.grey.shade600,
-                    value: 'Show Fares',
-                    items: <String>['Show Fares'].map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: w * 0.042,
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (_) {
-                      _showFarePickerDialog(context);
-                    },
-                  ),
-                ),
+                    // Show Fares DropDown
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF323e4c),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      margin: EdgeInsets.only(
+                        top: h * 0.015,
+                        bottom: h * 0.015,
+                      ),
+                      padding: EdgeInsets.only(left: w * 0.05, right: w * 0.03),
+                      child: DropdownButton<String>(
+                        underline: SizedBox.shrink(),
+                        dropdownColor: Color(0xFF1c1c1c),
+                        iconEnabledColor: Colors.white,
+                        iconDisabledColor: Colors.grey.shade600,
+                        value: 'Show Fares',
+                        items: <String>['Show Fares'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w * 0.042,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {
+                          _showFarePickerDialog(context);
+                        },
+                      ),
+                    ),
 
-                // Sort by DropDown
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF323e4c),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  margin: EdgeInsets.only(top: h * 0.015, bottom: h * 0.015),
-                  padding: EdgeInsets.only(left: w * 0.05, right: w * 0.03),
-                  child: DropdownButton<String>(
-                    underline: SizedBox.shrink(),
-                    dropdownColor: Color(0xFF1c1c1c),
-                    iconEnabledColor: Colors.white,
-                    iconDisabledColor: Colors.grey.shade600,
-                    value: 'Sort by',
-                    items: <String>['Sort by'].map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: w * 0.042,
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (_) {
-                      _showSortByPickerDialog(context);
-                    },
+                    // Sort by DropDown
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF323e4c),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      margin: EdgeInsets.only(
+                        top: h * 0.015,
+                        bottom: h * 0.015,
+                      ),
+                      padding: EdgeInsets.only(left: w * 0.05, right: w * 0.03),
+                      child: DropdownButton<String>(
+                        underline: SizedBox.shrink(),
+                        dropdownColor: Color(0xFF1c1c1c),
+                        iconEnabledColor: Colors.white,
+                        iconDisabledColor: Colors.grey.shade600,
+                        value: 'Sort by',
+                        items: <String>['Sort by'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w * 0.042,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (_) {
+                          _showSortByPickerDialog(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Container(
+                padding: EdgeInsets.only(top: h * 0.025, bottom: h * 0.025),
+                width: w,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black54,
+                      blurRadius: w * 0.02,
+                      spreadRadius: w * 0.005,
+                    ),
+                  ],
+                  color: Color(0xFF242d3c),
+                ),
+                child: Center(
+                  child: Text(
+                    selectedRoute,
+                    style: TextStyle(
+                      fontSize: w * 0.045,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.expressSectionFontColor,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+
+              Container(
+                padding: EdgeInsets.all(w * 0.04),
+                decoration: BoxDecoration(color: Color(0xFF1e1f21)),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    elevation: 0,
+                  ),
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.tagColor,
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                            padding: EdgeInsets.only(
+                              left: w * 0.009,
+                              right: w * 0.009,
+                            ),
+                            child: Text(
+                              "20960",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(width: w * 0.02),
+
+                          Text(
+                            '6:25 PM',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: w * 0.045,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+
+                          SizedBox(width: w * 0.02),
+
+                          Text(
+                            '- 5h15m -',
+                            style: TextStyle(
+                              color: Colors.grey.shade500,
+                              fontSize: w * 0.04,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+
+                          SizedBox(width: w * 0.02),
+
+                          Text(
+                            '11:40 PM',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: w * 0.045,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: h * 0.005),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Valsad InterCity SF Express",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: w * 0.045,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+
+                          Text(
+                            "Runs daily",
+                            style: TextStyle(color: AppColors.tagColor),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
 
-          Container(
-            padding: EdgeInsets.only(top: h * 0.025, bottom: h * 0.025),
-            width: w,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black54,
-                  blurRadius: w * 0.02,
-                  spreadRadius: w * 0.005,
-                ),
-              ],
-              color: Color(0xFF242d3c),
-            ),
-            child: Center(
-              child: Text(
-                selectedRoute,
-                style: TextStyle(
-                  fontSize: w * 0.045,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.expressSectionFontColor,
-                ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              padding: EdgeInsets.all(w * 0.03),
+              width: w,
+              decoration: BoxDecoration(color: Color(0xFF242d3c)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Check seat availability",
+                        style: TextStyle(
+                          color: Colors.grey.shade400,
+                          fontSize: w * 0.048,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: w * 0.04,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-
-          SizedBox(height: 10),
-
-          Text('20960  6:25 PM - 5h15m - 11:40 PM'),
         ],
       ),
     );

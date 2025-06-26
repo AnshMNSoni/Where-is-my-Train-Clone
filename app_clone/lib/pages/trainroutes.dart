@@ -1,3 +1,4 @@
+import 'package:app_clone/pages/traintracking.dart';
 import 'package:flutter/material.dart';
 import 'package:app_clone/utils/colors.dart';
 
@@ -208,7 +209,14 @@ class _TrainRoutePageState extends State<TrainRoutePage> {
                     padding: EdgeInsets.zero,
                     elevation: 0,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TrainTrackingPage(),
+                      )
+                    );
+                  },
                   child: Column(
                     children: [
                       Row(

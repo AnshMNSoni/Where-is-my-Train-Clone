@@ -41,5 +41,16 @@ flutter run
 ## 🤝 Contributing
 - Pull requests are welcome! If you’d like to improve the app or fix bugs, feel free to fork and submit a PR.
 
+---
+### 🎉 Credits: Google
+---
+
+## 📢 Connect with Me
+If you found this project helpful or have any suggestions, feel free to connect:
+#### - 🔗 [LinkedIn](https://www.linkedin.com/in/anshmnsoni)
+#### - 🐙 [GitHub](https://github.com/AnshMNSoni)
+
 ## 📜 License
-- This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
+
+### Thankyou 💫

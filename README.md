@@ -5,7 +5,7 @@ This is my **first showcase Flutter project**, developed over **40+ hours** with
 
 ## 📱 About the Project
 
-This project is a clone of the popular **Where is My Train** app that helps users track real-time train locations, schedules, and routes.
+This is a UI clone of a train booking app, featuring a responsive design and smooth navigation. It showcases train search, schedule view, and station tracking elements visually.
 
 ### 🛠️ Built With:
 - **Flutter** – UI Toolkit by Google
@@ -15,9 +15,7 @@ This project is a clone of the popular **Where is My Train** app that helps user
 - Custom animations and responsive UI
 
 ## 🔍 Features
-- 🚉 Train search functionality  
-- 📍 Real-time station tracking (simulated)  
-- 📆 Schedule view  
+- 🚉 Train Track UI     
 - 🌐 Adaptive and responsive UI  
 - 🔄 Smooth transitions and navigation
 

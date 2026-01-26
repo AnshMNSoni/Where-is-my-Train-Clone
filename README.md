@@ -54,7 +54,7 @@ flutter run
 - Pull requests are welcome! If you’d like to improve the app or fix bugs, feel free to fork and submit a PR.
 
 ---
-### 🎉 Credits: Google
+## Credits: Google
 ---
 
 ## 📢 Connect with Me

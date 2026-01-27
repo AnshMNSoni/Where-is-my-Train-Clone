@@ -3,11 +3,11 @@
 An ultimate clone of the **"Where is My Train"** app built using **Flutter**.  
 This is my **first showcase Flutter project**, developed over **40+ hours** with a strong focus on UI design, functionality, and user experience.
 
-## 📱 About the Project
+## About the Project
 
 This is a UI clone of a train booking app, featuring a responsive design and smooth navigation. It showcases train search, schedule view, and station tracking elements visually.
 
-### 🛠️ Built With:
+### Built With:
 - **Flutter** – UI Toolkit by Google
 - **Dart** – Programming Language
 - **Stateful and Stateless Widgets**

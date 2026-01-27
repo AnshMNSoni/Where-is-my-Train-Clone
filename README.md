@@ -14,10 +14,10 @@ This is a UI clone of a train booking app, featuring a responsive design and smo
 - **Material Design Components**
 - Custom animations and responsive UI
 
-## 🔍 Features
-- 🚉 Train Track UI     
-- 🌐 Adaptive and responsive UI  
-- 🔄 Smooth transitions and navigation
+## Features
+- Train Track UI     
+- Adaptive and responsive UI  
+- Smooth transitions and navigation
 
 ## 📸 Screenshots
 <table>
@@ -35,7 +35,7 @@ This is a UI clone of a train booking app, featuring a responsive design and smo
   </tr>
 </table> </br>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Flutter SDK installed
@@ -50,14 +50,14 @@ flutter pub get
 flutter run
 ```
 
-## 🤝 Contributing
+## Contributing
 - Pull requests are welcome! If you’d like to improve the app or fix bugs, feel free to fork and submit a PR.
 
 ---
 ## Credits: Google
 ---
 
-## 📢 Connect with Me
+## Connect with Me
 If you found this project helpful or have any suggestions, feel free to connect:
 
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-anshmnsoni-0077B5.svg?logo=linkedin)](https://www.linkedin.com/in/anshmnsoni)  
